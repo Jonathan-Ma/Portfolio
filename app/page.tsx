@@ -3,9 +3,8 @@ import Intro from "@/components/intro";
 
 export default function Home() {
   return (
-    <main className="z-[100] w-full top-40 absolute h-full">
+    <main className="z-[100] w-full top-40 absolute flex justify-center">
       <Intro/>
-      <About/>
     </main>
   );
 }
