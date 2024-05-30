@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black text-gray-950 h-[5000px]`}>
-        <div className="relative md:{relative min-h-screen flex}">
-          <img src="./B33LRGB_fb.png" className="absolute object-right h-full object-cover md:object-cover md:w-full md:h-full opacity-85" alt="Intro Image" />
+      <body className={`${inter.className} bg-black text-white h-[5000px]`}>
+        <div className="relative min-h-screen flex -z-[100]">
+          <img src="./B33LRGB_fb.png" className="absolute object-right h-full object-cover md:object-cover md:w-full md:h-full opacity-45" alt="Intro Image" />
           <div className="absolute bottom-0 w-full h-[10rem] bg-gradient-to-t from-black to-transparent"></div>
         </div>
         <Header />
