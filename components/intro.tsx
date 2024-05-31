@@ -11,7 +11,7 @@ export default function Intro() {
             </motion.div>
             <motion.p className='flex flex-wrap w-[15rem] sm:w-[40rem] sm:text-2xl font-medium pt-[3rem] justify-center' initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", damping: 10, duration: 0.2, delay: 0.7 }}>
                 <span className='font-bold text-2xl sm:text-5xl'>Hi there!</span>
-                <br />Welcome to the junkyard of my mind! Here, you'll find a mishmash of everything that goes on in my mind and projects that I have worked on and also WIP.
+                <br />Welcome to the junkyard of my mind! Here, you&apos;ll find a mishmash of everything that goes on in my mind and projects that I have worked on and also WIP.
             </motion.p>
         </section>
     )
