@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-black text-blue-50 h-[5000px]`}>
         <div className="relative min-h-screen flex -z-[100]">
-          <div className="absolute inset-0 bg-cover bg-no-repeat" style={{ backgroundImage: "url('/B33LRGB_fb.png')", backgroundPosition: "right center", backgroundAttachment: "fixed" }}
+          <div className="absolute inset-0 bg-cover" style={{ backgroundImage: "url('/B33LRGB_fb.png')", backgroundPosition: "right center", backgroundAttachment: "fixed" }}
           ></div>
           <div className="absolute bottom-0 w-full h-[30rem] bg-gradient-to-t from-black to-transparent"></div>
         </div>
