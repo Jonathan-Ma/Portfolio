@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import clsx from "clsx";
-import { RiLinkUnlink } from "react-icons/ri";
+
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("Home");
