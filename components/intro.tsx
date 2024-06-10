@@ -14,7 +14,7 @@ export default function Intro() {
                     <br />
                     <br />
                     <span>
-                        PS: I&apos;m working on this website too! so come back often and check to see if it's updated :&#41;
+                        PS: I&apos;m working on this website too! so come back often and check to see if it is updated :&#41;
                     </span>
                 </motion.p>
             </section>
