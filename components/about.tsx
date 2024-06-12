@@ -13,7 +13,7 @@ export default function About() {
         <motion.p className='flex flex-wrap w-[15rem] sm:w-[40rem] sm:text-2xl font-medium justify-center' initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", damping: 10, duration: 0.2, delay: 1.0 }}>
           <span className='font-bold text-l sm:text-5xl'>About me</span>
          
-          I'm Jonathan, a CS graduate from the University of Hawaii. I've spent time living in Georgia, China, and Hawaii, which has been a great experience!
+          I&apos;m Jonathan, a CS graduate from the University of Hawaii. I've spent time living in Georgia, China, and Hawaii, which has been a great experience!
         </motion.p>
       </section>
     </div>
