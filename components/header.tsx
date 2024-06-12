@@ -3,8 +3,6 @@ import { links } from "@/lib/data";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import clsx from "clsx";
-
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("Home");
@@ -27,9 +25,7 @@ export default function Header() {
               <motion.li className="relative flex py-1 px-4" key={link.hash}
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}>
-                <Link className={clsx("justify-center items-center", {
-                  "text-white": activeSection === link.name
-                })}
+                <Link className="justify-center items-center"
                   href={link.hash}
                   onClick={() => setActiveSection(link.name)}>
                   {link.name}
