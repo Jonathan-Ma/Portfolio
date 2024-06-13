@@ -2,11 +2,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import '@/styles/Starfield.scss'
+import '/styles/Starfield.scss'
+import '/app/globals.css'
 
 export default function About() {
   return (
-    <div className='flex w-screen h-screen items-center justify-center bg-neutral-400 relative bg-gradient-to-b from-black to-transparent'>
+    <div className='flex w-screen h-screen items-center justify-center relative'>
       
       <section className='text-center z-10' id="about">
         <motion.div className='flex items-center justify-center mb-[2rem]' initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", damping: 10, duration: 0.2, delay: 0.5 }}>
