@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <body className={`${inter.className} bg-black text-blue-50`}>
+      <body className={`${inter.className} bg-black text-zinc-200`}>
         <div className="absolute inset-0 bg-cover" style={{ backgroundImage: "url('/B33LRGB_fb.png')", backgroundPosition: "right center", backgroundAttachment: "fixed", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
         ></div>
         <div className="absolute bottom-0 w-full h-[30rem] bg-gradient-to-t from-black to-transparent"></div>

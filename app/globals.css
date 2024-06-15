@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-#newCanvas{
-    width: 50%;
-    height: 50%;
-    background-color: #000;
-  }
+.canvas-container {
+  width: 60vw; /* Set your desired width */
+  height: 50vh; /* Set your desired height */
+  position: relative;
+}
+
+#projects {
+  width: 100%;
+  height: 100%;
+}

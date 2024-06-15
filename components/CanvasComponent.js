@@ -1,4 +1,3 @@
-// components/CanvasComponent.js
 import { useEffect, useRef } from 'react';
 
 const CanvasComponent = () => {
@@ -6,19 +5,26 @@ const CanvasComponent = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+    // Function to resize the canvas based on its container
+    const resizeCanvas = () => {
+      const container = canvas.parentElement;
+      canvas.width = container.clientWidth;
+      canvas.height = container.clientHeight;
+    };
+
+    resizeCanvas();
 
     class Particle {
       constructor(effect, x, y, color) {
         this.effect = effect;
-        this.x = Math.random() * this.effect.canvasWidth;
+        this.x = Math.random() * this.effect.canvasWidth / 4;
         this.y = this.effect.canvasHeight;
         this.color = color;
         this.originX = x;
         this.originY = y;
-        this.size = this.effect.gap;
+        this.size = this.effect.gap / 1.2;
         this.dx = 0;
         this.dy = 0;
         this.vx = 0;
@@ -26,8 +32,8 @@ const CanvasComponent = () => {
         this.force = 0;
         this.angle = 0;
         this.distance = 0;
-        this.friction = Math.random() * 0.6 + 0.15;
-        this.ease = Math.random() * 0.1 + 0.005;
+        this.friction = 0.8;
+        this.ease = 0.08;
       }
       draw() {
         this.effect.context.fillStyle = this.color;
@@ -57,33 +63,33 @@ const CanvasComponent = () => {
         this.canvasHeight = canvasHeight;
         this.textX = this.canvasWidth / 2;
         this.textY = this.canvasHeight / 2;
-        this.fontSize = window.innerWidth * 0.15;
+        this.fontSize = this.canvasWidth * 0.15;
 
         this.particles = [];
-        this.gap = 2;
+        this.gap = 6;
         this.mouse = {
-          radius: 2000,
+          radius: 10000,
           x: 0,
           y: 0,
         };
-        window.addEventListener('mousemove', this.handleMouseMove);
+        canvas.addEventListener('mousemove', this.handleMouseMove);
       }
 
       handleMouseMove = (e) => {
-        this.mouse.x = e.x;
-        this.mouse.y = e.y;
+        const rect = canvas.getBoundingClientRect();
+        this.mouse.x = e.clientX - rect.left;
+        this.mouse.y = e.clientY - rect.top;
       };
 
       wrapText(text) {
         const gradient = this.context.createLinearGradient(0, 0, this.canvasWidth, this.canvasHeight);
-        gradient.addColorStop(0.3, 'blue');
-        gradient.addColorStop(0.5, 'yellow');
-        gradient.addColorStop(0.7, 'orange');
+        gradient.addColorStop(0.3, 'dimgray');
+        gradient.addColorStop(0.5, 'gray');
+        gradient.addColorStop(0.7, 'lightgray');
         this.context.fillStyle = gradient;
         this.context.font = 'bold ' + this.fontSize + 'px sans-serif';
         this.context.textAlign = 'center';
         this.context.textBaseline = 'middle';
-        this.context.letterSpacing = '3px';
         this.context.fillText(text, this.textX, this.textY);
         this.convertToParticles();
       }
@@ -91,16 +97,14 @@ const CanvasComponent = () => {
       convertToParticles() {
         this.particles = [];
         const pixels = this.context.getImageData(0, 0, this.canvasWidth, this.canvasHeight).data;
-        this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+
         for (let y = 0; y < this.canvasHeight; y += this.gap) {
           for (let x = 0; x < this.canvasWidth; x += this.gap) {
             const index = (y * this.canvasWidth + x) * 4;
             const alpha = pixels[index + 3];
             if (alpha > 0) {
-              const red = pixels[index];
-              const green = pixels[index + 1];
-              const blue = pixels[index + 2];
-              const color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+              const gray = Math.round(('red' + 'green' + 'blue') / 3); // assuming red, green, and blue are equal for gray
+              const color = `rgb(${gray}, ${gray}, ${gray})`;
               this.particles.push(new Particle(this, x, y, color));
             }
           }
@@ -113,10 +117,16 @@ const CanvasComponent = () => {
           particle.draw();
         });
       }
+      resize(width, height) {
+        this.canvasWidth = width;
+        this.canvasHeight = height;
+        this.textX = this.canvasWidth / 2;
+        this.textY = this.canvasHeight / 2;
+      }
     }
 
     const effect = new Effect(ctx, canvas.width, canvas.height);
-    effect.wrapText('you whats up');
+    effect.wrapText('Projects');
     effect.render();
 
     const animate = () => {
@@ -126,12 +136,15 @@ const CanvasComponent = () => {
     };
     animate();
 
+    window.addEventListener('resize', resizeCanvas);
+
     return () => {
-      window.removeEventListener('mousemove', effect.handleMouseMove);
+      canvas.removeEventListener('mousemove', effect.handleMouseMove);
+      window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
 
-  return <canvas ref={canvasRef} id="newCanvas"></canvas>;
+  return <canvas ref={canvasRef} id="projects"></canvas>;
 };
 
 export default CanvasComponent;

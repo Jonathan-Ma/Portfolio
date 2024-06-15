@@ -1,8 +1,8 @@
-$stars: 200;         // Number of stars per layer
-$depth: 900;        // Depth between star layers
-$speed: 5s;          // Number of seconds to transition between layers
-$width: 8000;        // Width of the starfield
-$height: 960;        // Height of the starfield
+$stars: 800;         // Number of stars per layer
+$depth: 500;        // Depth between star layers
+$speed: 8s;          // Number of seconds to transition between layers
+$width: 5000;        // Width of the starfield
+$height: 5000;        // Height of the starfield
 
 .starfield-container {
   perspective: 1000px;
