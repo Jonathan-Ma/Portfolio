@@ -1,8 +1,8 @@
 "use client"
 import CanvasComponent from "@/components/CanvasComponent";
-import About from "@/components/about";
-import Intro from "@/components/intro";
-import SectionDivider from "@/components/section-divider";
+import About from "@/components/About";
+import Intro from "@/components/Intro";
+import SectionDivider from "@/components/SectionDivider";
 import '/app/globals.css'
 
 export default function Home() {

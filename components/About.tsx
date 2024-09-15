@@ -15,8 +15,8 @@ export default function About() {
         </motion.div>
         <motion.p className='flex flex-wrap w-[15rem] sm:w-[40rem] sm:text-xl font-medium justify-center' initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", damping: 10, duration: 0.2, delay: 1.0 }}>
           <span className='font-bold text-l sm:text-5xl pb-8'>About me</span>
-         
-          I am Jonathan! A recent graduate from the University of Hawaii with experience in embedded systems, full-stack development, and Android applications. While I am proud of my breadth of experiences, I now seek to specialize deeply in a focused domain. My goal is to join a company and commit long-term so I can focus on personal growth while taking ownership and driving the companies success.
+
+          My name is Jonathan, I am currently an SDET at goTenna, a company that makes mobile mesh networking devices for off-grid and decentralized communication.
         </motion.p>
       </section>
       <div className='starfield-container'>
